@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}  DICTIONNAIRE UNIVERSEL {% endblock %}
+
+{% block main %}
+<h1>DICTIONNAIRE UNIVERSEL</h1>
+
+<form action = "my-home" method="POST">
+    
+    <label for="inserer">Ajouter des livres</label>
+    <input type="text" name="inserer" value="" >
+    <input type="button" value="Ajouter">
+    <br><br>
+    
+    <label for="recherche">Rechercher des livres</label>
+    <input type="search" id="recherche" name="q">
+
+    <button name="search" >search</button>
+    <br><br>
+    <button type="submit">submit</button>
+</form>
+
+{% endblock %}
