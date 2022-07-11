@@ -2,7 +2,9 @@ FROM python:alpine
 
 LABEL maintener="Jeeva S. Chelladhurai"
 
-WORKDIR /home/vagrant/
+COPY . /app
+
+WORKDIR /app
 
 ENV FLASK_ENV=development
 
