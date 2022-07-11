@@ -1,9 +1,25 @@
-# projet-pfe
+# FLASK
 
-#  Etapes pour le lancement de l'application
+Flask est un framework web pyhton qui permet de créer des applications web légères à des fins de test
 
-# Faire un git clone du projet à l'aide de la commande suivante: git clone git@github.com:Marvellck/projet-pfe.git
+## Lancement de l'application
 
-# Une fois que vous avez cloné le projet en local, mettre la variable d'environnement FLASK_ENV en mode developement pour éviter de relancer l'application à chaque que l'on fait une modification grâce à la commande export FLASK_ENV=development
+il faut avoir [python](https://www.python.org/downloads) pour pouvoir lancer l'application
 
-# Enfin, faire un flask run pour lancer l'application 
+> Cloner le repo à l'aide de la commande git clone git@github.com:Marvellck/projet-pfe.git
+
+>_cd_ à l'intérieur du projet cloné
+
+## A l'intérieur du projet ##
+
+```
+#modifier flask_env
+export FLASK_ENV=development
+
+#lancer l'application
+flask run
+```
+
+## License
+
+_Uriel Marvel NGANKAM KALAMO_
