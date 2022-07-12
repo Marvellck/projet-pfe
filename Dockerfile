@@ -1,18 +1,14 @@
-FROM python:alpine
+FROM python:3.10.5-alpine
 
-LABEL maintener="Jeeva S. Chelladhurai"
+LABEL maintener="Uriel Marvel NGANKAM KALAMO"
 
 WORKDIR /app
 
-RUN apk update && apk add python3 py3-pip
+RUN pip install Flask-pymongo \
+                pymongo[srv] \
+                flask 
 
-RUN pip install Flask-pymongo
-
-RUN python3 -m pip install pymongo[srv]
-
-RUN pip install flask 
-
-COPY . /app
+COPY ./app.py /app
 
 ENV MONGODB_CONNSTRING=mongodb+srv://Marvel:Password123@cluster0.4eo8ulb.mongodb.net/test?retryWrites=true&w=majority
 
@@ -24,5 +20,5 @@ EXPOSE 5000
 
 ENTRYPOINT [ "flask" ]
 
-CMD [ "run" ] 
+CMD [ "run" , "--host=0.0.0.0"] 
 
