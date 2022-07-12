@@ -26,19 +26,14 @@ flask run
 # Lancer l'application dans un conteneur Docker
 
 > A l'aide du Dockerfile qui se situe dans l'arborescence du projet, créer une image de l'application à l'aide de la commande _docker build -t votre_identifiant_docker_hub/nom_de_l'image:tag_ .
-> Envoyer l'image sur votre Docker Hub registry à l'aide de la commande _docker push votre_identifiant_docker_hub/nom_de_l'image:tag_
 
 
 ## tester l'image 
 
 ```
-#Creer un reseau
-
->docker network create nom_du_reseau
-
 #lancer un conteneur 
 
->docker run --name=nom_du_conteneur --rm -p 5000:5000 -d --network=nom_du_network nom_de_l'image_buildé 
+>docker run --name=nom_du_conteneur -p 5000:5000 nom_de_l'image_buildé:tag
 ```
 
 
