@@ -14,5 +14,7 @@ RUN pip install flask
 
 EXPOSE 5000
 
-CMD [ "flask", "run" ] 
+ENTRYPOINT [ "flask" ]
+
+CMD [ "run", "sleep 10" ] 
 
