@@ -1,7 +1,7 @@
 version: "3"
 services:
   projet-pfe:
-    image: marvel64/image_pfe1:latest
+    image: marvel:v1
     ports:
       - "5000:5000"
     depends_on:
