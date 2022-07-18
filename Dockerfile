@@ -8,7 +8,8 @@ RUN pip install Flask-pymongo \
                 pymongo[srv] \
                 flask 
 
-COPY ./app.py  /app
+COPY ./app.py ./templates /app/
+
 
 ENV MONGODB_CONNSTRING=mongodb+srv://Marvel:Password123@cluster0.4eo8ulb.mongodb.net/test?retryWrites=true&w=majority
 
