@@ -1,24 +1,27 @@
 version: "3"
 services:
-  projet-pfe:
+  app:
     image: marvel:v1
+    restart: always
     ports:
       - "5000:5000"
     depends_on:
-      - Flask-mongo
-  Flask-mongo:
-    image: mongo
+      - db
+    networks:
+      - networkname
+  db:
+    image: mongo:focal
+    restart: always
     environment:
-      - MONGODB_CONNSTRING=mongodb+srv://Marvel:Password123@cluster0.4eo8ulb.mongodb.net/test?retryWrites=true&w=majority
+      - MONGODB_CONNSTRING:mongodb+srv://Marvel:Password123@cluster0.4eo8ulb.mongodb.net/test?retryWrites=true&w=majority
+      - MONGODB_ADMINUSERNAME:Marvel
+      - MONGODB_ADMINPASSWORD:Password123
+    networks:
+      - networkname
+    command: --bind_ip_all
 
+networks:
+  networkname:
+    driver: bridge 
  
     
-        
-
- 
-
-
-
-  
-
-  
