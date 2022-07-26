@@ -5,15 +5,15 @@ services:
     image: marvel:v1
     restart: always
     environment:
-      - MONGODB_CONNSTRING=mongodb+srv://Marvel:Password123@cluster0.4eo8ulb.mongodb.net/test?retryWrites=true&w=majority # lien de connexion vers la base de donnée
+      - MONGO_URI=mongodb://db/library # lien de connexion vers la base de donnée
     ports:
       - 5000:5000   
   db:
-    image: mongo:focal
+    image: mongo:5.0-focal
     restart: always
     environment:
-      - MONGODB_ADMINUSERNAME=Marvel
-      - MONGODB_ADMINPASSWORD=Password123
+      - MONGO_INITDB_ROOT_USERNAME=Marvel
+      - MONGODB_INITDB_ROOT_PASSWORD=Password123
 
 
  

@@ -1,10 +1,10 @@
 
-from flask import Flask , render_template,request,redirect,url_for,jsonify 
+from flask import Flask , render_template,request,redirect,url_for,jsonify,os
 from flask_pymongo import PyMongo
 
 app = Flask(__name__)
-
 app.config["MONGO_URI"] = "mongodb+srv://Marvel:Password123@cluster0.4eo8ulb.mongodb.net/test?retryWrites=true&w=majority"
+app.config["MONGO_URI"] = os.getenv('MONGO_URI')
 mongo = PyMongo(app)
 db = mongo.db
 books_collection = db.books
