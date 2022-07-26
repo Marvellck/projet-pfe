@@ -11,11 +11,11 @@ services:
   db:
     image: mongo:5.0-focal
     env_file:
-      - ./.env
+      - .env
     restart: always
     environment:
-      - MONGO_INITDB_ROOT_USERNAME=mongouser
-      - MONGODB_INITDB_ROOT_PASSWORD=mongopassword
+      - MONGO_INITDB_ROOT_USERNAME=${MONGO_INITDB_ROOT_USERNAME}
+      - MONGODB_INITDB_ROOT_PASSWORD=${MONGODB_INITDB_ROOT_PASSWORD}
 
  
     
