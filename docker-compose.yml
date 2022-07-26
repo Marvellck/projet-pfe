@@ -10,11 +10,12 @@ services:
       - 5000:5000   
   db:
     image: mongo:5.0-focal
+    env_file:
+      - ./.env
     restart: always
     environment:
-      - MONGO_INITDB_ROOT_USERNAME=Marvel
-      - MONGODB_INITDB_ROOT_PASSWORD=Password123
-
+      - MONGO_INITDB_ROOT_USERNAME=mongouser
+      - MONGODB_INITDB_ROOT_PASSWORD=mongopassword
 
  
     
