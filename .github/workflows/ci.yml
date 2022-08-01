@@ -28,3 +28,5 @@ jobs:
         with:
           push: true
           tags: marvellck/marvel:v1
+          secrets: |
+            GIT_AUTH_TOKEN=${{ secrets.GHCR_TOKEN }}
