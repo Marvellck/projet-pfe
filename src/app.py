@@ -4,10 +4,9 @@ from flask_pymongo import PyMongo
 import os
 
 app = Flask(__name__)
-#app.config["MONGO_URI"] = "mongodb+srv://username=Marvel:password=Password123@cluster0.4eo8ulb.mongodb.net/test?retryWrites=true&w=majority"
+
 app.config["MONGO_URI"] = os.getenv('MONGO_URI')
-#MONGO_INITDB_ROOT_USERNAME = os.getenv('username')
-#MONGO_INITDB_ROOT_PASSWORD= os.getenv('password')
+
 mongo = PyMongo(app)
 db = mongo.db
 books_collection = db.books
