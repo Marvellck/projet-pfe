@@ -8,7 +8,7 @@ RUN pip install Flask-pymongo \
                 pymongo[srv] \
                 flask 
 
-COPY ./src /app/src
+COPY ./src /app/
 
 ENV FLASK_ENV=development \ 
     FLASK_APP=app.py
