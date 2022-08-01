@@ -27,6 +27,6 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           push: true
-          tags: ghcr.io/marvellck/marvel:v1
+          tags: ghcr.io/marvellck/marvel:v2
           secrets: |
             GIT_AUTH_TOKEN=${{ secrets.GHCR_TOKEN }}
