@@ -1,0 +1,54 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: db
+  name: db
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: db
+  strategy: {}
+  template:
+    metadata:
+      labels:
+        app: db
+    spec:
+      containers:
+        - image: mongo:5.0-focal
+          name: mongo
+          env:
+            - name: MONGO_URI
+              value: MONGO_URI=mongodb://${SECRET_USERNAME}:${SECRET_PASSWORD}@db/local?authSource=admin
+            - name: SECRET_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: db-secret
+                  key: username
+            - name: SECRET_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: db-secret
+                  key: password
+          volumeMounts:
+          - name: "mongodatabase"
+            mountPath: "/data/db"
+      volumes:
+      - name: "mongodatabase"
+        persistentVolumeClaim:
+          claimName: "pvc"
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: db-service
+spec:
+  type: ClusterIP
+  selector:
+    app.kubernetes.io/name: db
+  ports:
+    - name: mongo-svc
+      port: 27017
+      protocol: TCP
