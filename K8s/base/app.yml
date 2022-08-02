@@ -1,26 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  name: app-deployment
   labels:
     app: app
-  name: app
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       app: app
-  strategy: {}
   template:
     metadata:
       labels:
         app: app
     spec:
       containers:
-      - image: ghcr.io/marvellck/marvel
-        name: marvel
+      - name: app
+        image: ghcr.io/marvellck/marvel:v1
         ports:
-          - containerPort: 5000
-        resources: {}
-status: {}
-
-
+        - containerPort: 5000

@@ -1,45 +1,61 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  name: db-deployment
   labels:
     app: db
-  name: db
 spec:
-  replicas: 2
+  replicas: 3
   selector:
     matchLabels:
       app: db
-  strategy: {}
   template:
     metadata:
       labels:
         app: db
     spec:
       containers:
-        - image: mongo:5.0-focal
-          name: mongo
-          env:
-            - name: MONGO_URI
-              value: MONGO_URI=mongodb://${SECRET_USERNAME}:${SECRET_PASSWORD}@db/local?authSource=admin
-            - name: SECRET_USERNAME
-              valueFrom:
-                secretKeyRef:
-                  name: db-secret
-                  key: username
-            - name: SECRET_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: db-secret
-                  key: password
-          volumeMounts:
-          - name: "mongodatabase"
-            mountPath: "/data/db"
+      - name: mongo
+        image: mongo:5.0-focal
+        resources:
+          limits:
+            memory: 512Mi
+            cpu: "1"
+          requests:
+            memory: 256Mi
+            cpu: "0.2"
+
+        ports:
+          - containerPort: 5000
+        env:
+        - name: MONGO_URI
+          value: MONGO_URI=mongodb://${SECRET_USERNAME}:${SECRET_PASSWORD}@db/local?authSource=admin
+        - name: SECRET_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: db-secret
+              key: username
+        - name: SECRET_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: db-secret
+              key: password
+        volumeMounts:
+        - name: "mongodatabase"
+          mountPath: "/data/db"
       volumes:
       - name: "mongodatabase"
         persistentVolumeClaim:
           claimName: "pvc"
 
+      
+      
+      
+      
+      
 ---
+
+
 apiVersion: v1
 kind: Service
 metadata:
