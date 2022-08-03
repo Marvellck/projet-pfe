@@ -20,8 +20,8 @@ spec:
         ports:
           - containerPort: 27017
         env:
-        - name: MONGO_URI
-          value: MONGO_URI=mongodb://${SECRET_USERNAME}:${SECRET_PASSWORD}@db/local?authSource=admin
+       # - name: MONGO_URI
+         # value: MONGO_URI=mongodb://${SECRET_USERNAME}:${SECRET_PASSWORD}@db/local?authSource=admin
         - name: SECRET_USERNAME
           valueFrom:
             secretKeyRef:
@@ -35,7 +35,6 @@ spec:
         volumeMounts:
         - name: "mongodatabase"
           mountPath: "/var/lib/mongo/data"
-          subPath: mongodata
       volumes:
       - name: "mongodatabase"
         persistentVolumeClaim:

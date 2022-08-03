@@ -19,5 +19,11 @@ spec:
         image: ghcr.io/marvellck/marvel:v1
         ports:
         - containerPort: 5000
+        env:
+        - name: MONGO_URI
+          valueFrom:
+            secretKeyRef:
+              key: db-secret
+              name: mongo_uri
       imagePullSecrets:
       - name: regauth
