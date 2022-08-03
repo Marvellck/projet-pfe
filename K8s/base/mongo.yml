@@ -17,16 +17,8 @@ spec:
       containers:
       - name: mongo
         image: mongo:5.0-focal
-        resources:
-          limits:
-            memory: 512Mi
-            cpu: "1"
-          requests:
-            memory: 256Mi
-            cpu: "0.2"
-
         ports:
-          - containerPort: 5000
+          - containerPort: 27017
         env:
         - name: MONGO_URI
           value: MONGO_URI=mongodb://${SECRET_USERNAME}:${SECRET_PASSWORD}@db/local?authSource=admin
@@ -42,11 +34,12 @@ spec:
               key: password
         volumeMounts:
         - name: "mongodatabase"
-          mountPath: "/data/db"
+          mountPath: "/var/lib/mongo/data"
+          subPath: mongodata
       volumes:
       - name: "mongodatabase"
         persistentVolumeClaim:
-          claimName: "pvc"
+          claimName: "mongo-pvc"
 
       
       
