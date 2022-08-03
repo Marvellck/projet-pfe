@@ -27,3 +27,21 @@ spec:
               name: db-secret
       imagePullSecrets:
       - name: regauth
+
+
+---
+
+
+apiVersion: v1
+kind: Service
+metadata:
+  name: app-service
+spec:
+  type: ClusterIP
+  selector:
+    app.kubernetes.io/name: app
+  ports:
+    - name: app-svc
+      port: 5000
+      protocol: TCP
+
