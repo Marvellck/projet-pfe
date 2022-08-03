@@ -39,7 +39,7 @@ metadata:
 spec:
   type: ClusterIP
   selector:
-    app.kubernetes.io/name: app
+    app: app
   ports:
     - name: app-svc
       port: 5000

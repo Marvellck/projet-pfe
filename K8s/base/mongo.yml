@@ -42,7 +42,7 @@ metadata:
 spec:
   type: ClusterIP
   selector:
-    app.kubernetes.io/name: db
+    app: db
   ports:
     - name: mongo-svc
       port: 27017
