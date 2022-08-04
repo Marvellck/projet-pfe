@@ -30,15 +30,9 @@ spec:
 
 
 ---
-
-
-
-
-
 apiVersion: v1
 kind: Service
 metadata:
-  creationTimestamp: null
   labels:
     app: app
   name: app-deployment
@@ -49,5 +43,3 @@ spec:
     targetPort: 5000
   selector:
     app: app
-status:
-  loadBalancer: {}
