@@ -1,11 +1,11 @@
 name: Create cluster
 
 on : 
-   pull_request:
+#pull_request:
    push:
      branches:
        - main
-       - test
+       
 
 
 jobs:
