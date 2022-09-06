@@ -15,6 +15,7 @@ jobs:
         uses: actions/checkout@v3
         
       - name: Create K8s Kind Cluster
+        uses: ./kind-cluster.yaml
         run: |
           kind create cluster --config kind-cluster.yaml
 
