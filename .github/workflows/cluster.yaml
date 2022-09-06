@@ -16,9 +16,12 @@ jobs:
         
       - name: Create K8s Kind Cluster
         uses: helm/kind-action@v1.3.0
-        with:
-          path: ./kind-cluster.yaml 
+        inputs:
+          file-path:
+            description: "kind cluster"
+            default: "./kind-cluster.yaml"
 
+        
       - name: Test
         run: |
           kubectl cluster-info
