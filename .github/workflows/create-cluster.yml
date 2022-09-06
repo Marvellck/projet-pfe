@@ -13,7 +13,8 @@ jobs:
         uses: actions/checkout@v3
         
       - name: Create K8s Kind Cluster
-        uses: /home/urnga/Bureau/projet-pfe/.github/workflows/kind-cluster.yaml
+        with: 
+          config: ./kind-cluster.yaml
       - name: Test
         run: |
           kubectl cluster-info
