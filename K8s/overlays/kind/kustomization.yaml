@@ -1,0 +1,7 @@
+bases:
+  - ../../base
+
+patchesStrategicMerge:
+  - env.yaml
+  - service-nodeport.yaml
+
