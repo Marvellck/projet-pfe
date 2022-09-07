@@ -16,8 +16,6 @@ jobs:
         
       - name: Create K8s Kind Cluster
         uses: helm/kind-action@v1.3.0
-        with:
-          config: ./actions/kind-cluster.yaml
 
         
       - name: Test
