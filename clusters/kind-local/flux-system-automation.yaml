@@ -19,7 +19,7 @@ spec:
   interval: 1m0s
   sourceRef:
     kind: GitRepository
-    name: flux-system
+    name: projet-pfe
   update:
     path: ./clusters/kind-local
     strategy: Setters
