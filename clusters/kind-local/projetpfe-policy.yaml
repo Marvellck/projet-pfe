@@ -6,7 +6,7 @@ metadata:
   namespace: flux-system
 spec:
   imageRepositoryRef:
-    name: marvel
+    name: projet-pfe
   policy:
     semver:
       range: v1.x
