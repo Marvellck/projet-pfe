@@ -9,5 +9,5 @@ spec:
     name: projet-pfe
   policy:
     semver:
-      range: v1.1.0.x
+      range: v1::1.0.x
 
