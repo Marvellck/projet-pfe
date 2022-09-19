@@ -8,5 +8,7 @@ spec:
   interval: 30s
   ref:
     branch: main
+  secretRef:
+    name: regcred
   url: https://github.com/marvellck/projet-pfe
 
