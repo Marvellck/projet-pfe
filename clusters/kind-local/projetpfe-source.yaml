@@ -8,6 +8,5 @@ spec:
   interval: 30s
   ref:
     branch: main
- 
   url: https://github.com/marvellck/projet-pfe
 
