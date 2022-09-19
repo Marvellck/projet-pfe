@@ -8,5 +8,9 @@ spec:
   image: ghcr.io/marvellck/marvel
   interval: 1m0s
   secretRef:
-    name: regauth
+    name: regcred
+  accessFrom:
+    namespaceSelectors:
+      - matchLabels:
+          kubernetes.io/metadata.name: flux-system
 
