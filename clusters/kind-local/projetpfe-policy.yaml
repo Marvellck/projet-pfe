@@ -11,8 +11,4 @@ spec:
   policy:
     semver:
       range: v1.0.x
-  
-  accessFrom:
-    namespaceSelectors:
-      - matchLabels: {}
-
+ 

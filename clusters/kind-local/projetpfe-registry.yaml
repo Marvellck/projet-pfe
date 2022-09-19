@@ -9,8 +9,4 @@ spec:
   interval: 1m0s
   secretRef:
     name: regcred
-  accessFrom:
-    namespaceSelectors:
-      - matchLabels:
-          kubernetes.io/metadata.name: flux-system
-
+  
