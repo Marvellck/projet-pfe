@@ -7,6 +7,7 @@ metadata:
 spec:
   imageRepositoryRef:
     name: projet-pfe
+    namespace: flux-system
   policy:
     semver:
       range: v1.0.x
