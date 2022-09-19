@@ -1,0 +1,46 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: app-deployment
+  labels:
+    app: app
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: app
+  template:
+    metadata:
+      labels:
+        app: app
+    spec:
+      containers:
+      - name: app
+        image: ghcr.io/marvellck/marvel:v1.0.1 # {"$imagepolicy": "flux-system:projet-pfe"}
+        ports:
+        - containerPort: 5000
+        env:
+        - name: MONGO_URI
+          valueFrom:
+            secretKeyRef:
+              key: mongoUri
+              name: db-secret
+      imagePullSecrets:
+      - name: regauth
+
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: app
+  name: app-deployment
+spec:
+  ports:
+  - port: 5000
+    protocol: TCP
+    targetPort: 5000
+  selector:
+    app: app
+
