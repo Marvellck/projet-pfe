@@ -10,5 +10,5 @@ spec:
     branch: main
   url: https://github.com/marvellck/projet-pfe
   secretRef:
-    name: projetpfe-auth
+    name: regcred
 
