@@ -9,4 +9,6 @@ spec:
   ref:
     branch: main
   url: https://github.com/Marvellck/projet-pfe
+  secretRef:
+    name: projetpfe-auth
 
