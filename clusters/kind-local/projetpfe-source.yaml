@@ -8,5 +8,7 @@ spec:
   interval: 30s
   ref:
     branch: main
+  secretRef:
+    name: projetpfe-auth
   url: https://github.com/Marvellck/projet-pfe
 
