@@ -21,6 +21,6 @@ spec:
     kind: GitRepository
     name: projet-pfe
   update:
-    path: ./
+    path: ./clusters/kind-local
     strategy: Setters
 
