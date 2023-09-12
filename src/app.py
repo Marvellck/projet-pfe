@@ -5,11 +5,12 @@ import os
 
 app = Flask(__name__)
 
-app.config["MONGO_URI"] = os.getenv('MONGO_URI')
+app.config["MONGO_URI"] = os.getenv("MONGO_URI")
 
 mongo = PyMongo(app)
 db = mongo.db
 books_collection = db.books
+
 
 
 @app.route('/')
@@ -19,6 +20,7 @@ def home():
 
 @app.route('/my-home', methods=['GET', 'POST'])
 def my_home():
+    
     if request.method == 'POST':     
         inserer = request.form['inserer']
         books_collection.insert_many([

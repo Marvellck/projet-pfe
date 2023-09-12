@@ -11,7 +11,8 @@ RUN pip install Flask-pymongo \
 COPY ./src /app/
 
 ENV FLASK_ENV=development \ 
-    FLASK_APP=app.py
+    FLASK_APP=app.py \
+    MONGO_URI="mongodb+srv://Marvel:Marvel@cluster0.4eo8ulb.mongodb.net/test?retryWrites=true&w=majority"
 
 EXPOSE 5000
 
