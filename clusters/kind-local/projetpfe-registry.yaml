@@ -5,7 +5,7 @@ metadata:
   name: projet-pfe
   namespace: flux-system
 spec:
-  image: ghcr.io/marvellck/marvel
+  image: ghcr.io/marvellck/image_pfe
   interval: 1m0s
   secretRef:
     name: regcred

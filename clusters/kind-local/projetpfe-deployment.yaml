@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
       - name: app
-        image: ghcr.io/marvellck/marvel:v1.0.3 # {"$imagepolicy": "flux-system:projet-pfe"}
+        image: ghcr.io/marvellck/image_pfe:v1.0.3 # {"$imagepolicy": "flux-system:projet-pfe"}
         ports:
         - containerPort: 5000
         env:
