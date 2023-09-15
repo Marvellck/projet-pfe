@@ -8,4 +8,4 @@ spec:
   image: ghcr.io/marvellck/image_pfe
   interval: 1m0s
   secretRef:
-    name: regcred
+    name: regauth
