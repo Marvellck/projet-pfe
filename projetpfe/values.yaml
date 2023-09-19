@@ -1,0 +1,16 @@
+apiVersion: helm.toolkit.fluxcd.io/v2beta1
+kind: HelmRelease
+metadata:
+  name: projetpfe-release 
+  namespace: flux-system
+spec:
+  interval: 1m
+  chart:
+    spec:
+      sourceRef:
+        kind: GitRepository
+        name: projet-pfe
+        namespace: flux-system
+      chart: projetpfe-0.1.0
+      interval: 1m
+ 
