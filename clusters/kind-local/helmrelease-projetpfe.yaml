@@ -3,15 +3,15 @@ apiVersion: helm.toolkit.fluxcd.io/v2beta1
 kind: HelmRelease
 metadata:
   name: projetpfe
-  namespace: flux-system
+  namespace: default
 spec:
   chart:
     spec:
-      chart: projetpfe
-      reconcileStrategy: ChartVersion
+      chart: ../../projetpfe
+      version: 
       sourceRef:
-        kind: HelmRepository
+        kind: GitRepository
         name: projet-pfe
+        namespace: flux-system
   interval: 1m0s
   releaseName: projetpfe
-  targetNamespace: flux-system
