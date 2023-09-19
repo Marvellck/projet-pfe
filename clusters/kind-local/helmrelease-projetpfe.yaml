@@ -10,7 +10,7 @@ spec:
       chart: projetpfe
       reconcileStrategy: ChartVersion
       sourceRef:
-        kind: GitRepository
+        kind: HelmRepository
         name: projet-pfe
   interval: 1m0s
   releaseName: projetpfe
